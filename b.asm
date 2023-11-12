@@ -8,7 +8,6 @@ Bmenos: 0b00000001
 Qcero: 0b0
 QSHBMAS: 0b0
 
-
 Loop_principal:
 
 MOV ACC, Bmenos ;Cargar Bmenos en el ACC
