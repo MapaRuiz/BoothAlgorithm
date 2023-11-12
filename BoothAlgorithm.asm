@@ -42,7 +42,7 @@ MOV ACC, 0x1    ;Cargar 1 en el ACC
 MOV DPTR, ACC   ;Apuntar a la dirección de ACC
 MOV ACC, [DPTR] ;Mover el contenido del DPTR al ACC
 ADD ACC, A      ;Sumar A a ACC
-MOV A , ACC     ;Mover ACC en A 
+MOV A, ACC     ;Mover ACC en A 
                 ;A = [QMAS] C2
 
 MOV ACC, Qcero  ;Cargar Qcero en el ACC
@@ -64,14 +64,14 @@ MOV ACC, 0x1    ;Cargar 1 en el ACC
 MOV DPTR, ACC   ;Apuntar a la dirección de ACC
 MOV ACC, [DPTR] ;Mover el contenido del DPTR al ACC
 INV ACC         ;Invertir ACC
-MOV A , ACC     ;Mover ACC en A 
+MOV A, ACC     ;Mover ACC en A 
                 ;A = [1] C1
 
 MOV ACC, 0x1    ;Cargar 1 en el ACC
 MOV DPTR, ACC   ;Apuntar a la dirección de ACC
 MOV ACC, [DPTR] ;Mover el contenido del DPTR al ACC
 ADD ACC, A      ;Sumar A a ACC
-MOV A , ACC     ;Mover ACC en A 
+MOV A, ACC     ;Mover ACC en A 
                 ;A = [1] C2
 
 MOV ACC, count  ;Cargar count en el ACC
