@@ -53,6 +53,7 @@ MOV A, ACC      ;Mover ACC en A
                 ;A = QCERO - QMAS
 
 JZ Shift        ;JumpZero hacia Shift
+
 JN Suma         ;JumpNegative hacia Suma
 
 JMP Resta       ;Jump hacia Resta
