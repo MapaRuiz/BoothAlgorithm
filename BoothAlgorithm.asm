@@ -131,7 +131,7 @@ MOV A, ACC      ;Mover ACC a A
 MOV ACC, Q      ;Cargar una variable x en el ACC
 MOV DPTR, ACC   ;Apuntar a la dirección de ACC
 MOV ACC, [DPTR] ;Mover el contenido del DPTR al ACC
-AND ACC,A       ;Añadir A a ACC    BMENOS & Q
+AND ACC, A       ;Añadir A a ACC    BMENOS & Q
 MOV A, ACC      ;Mover ACC en A 
                 ;A = EL BMENOS DE Q
 
