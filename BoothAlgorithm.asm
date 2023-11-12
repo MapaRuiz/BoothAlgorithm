@@ -6,8 +6,8 @@ M: 0b11111101; Multiplicando
 count: 0x8
 
 Bmenos: 0b00000001
-Qcero:0b0
-QSHBMAS:0b0
+Qcero: 0b0
+QSHBMAS: 0b0
 
 
 Loop_principal:
@@ -137,7 +137,7 @@ MOV A, ACC      ;Mover ACC en A
 
 MOV ACC, Q_1    ;Cargar Q_1 en el ACC
 MOV DPTR, ACC   ;Apuntar a la dirección de ACC
-MOV ACC,A       ;Mover A a ACC	
+MOV ACC, A       ;Mover A a ACC	
 MOV [DPTR], ACC ;Mover ACC a al contenido de DPTR (QMAS)		
                 ;QMAS = BMENOS DE Q
 
@@ -195,7 +195,7 @@ MOV ACC, 0x1    ;Cargar 1 en el ACC
 MOV DPTR, ACC   ;Apuntar a la dirección de ACC
 MOV ACC, [DPTR] ;Mover el contenido del DPTR al ACC
 ADD ACC, A      ;Sumar A a ACC
-MOV A , ACC     ;Mover ACC en A 
+MOV A, ACC     ;Mover ACC en A 
                 ;A = [M] C2
 
 MOV ACC, variableA    ;Cargar variableA en el ACC
