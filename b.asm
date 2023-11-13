@@ -1,8 +1,8 @@
 
 variableA: 0b00000000
-Q: 0b10000001 ; Multiplicador
+Q: 0b00000001 ; Multiplicador
 Q_1: 0b00000000
-M: 0b11111101; Multiplicando
+M: 0b00000001; Multiplicando
 count: 0x8
 
 Bmenos: 0b00000001
