@@ -3,7 +3,7 @@ variableA: 0b0
 Q: 0b10000001 ; Multiplicador
 Q_1: 0b0
 M: 0b11111101; Multiplicando
-count: 0x8
+count: 0b1000
 
 Bmenos: 0b00000001
 Qcero: 0b0
@@ -38,7 +38,7 @@ inv ACC         ;Invertir ACC
 mov A, ACC      ;Mover ACC en A
                 ;A = [QMAS] C1
 
-mov ACC, 0x1    ;Cargar 1 en el ACC
+mov ACC, 0b01    ;Cargar 1 en el ACC
 mov DPTR, ACC   ;Apuntar a la dirección de ACC
 mov ACC, [DPTR] ;Mover el contenido del DPTR al ACC
 add ACC, A      ;Sumar A a ACC
@@ -60,14 +60,14 @@ call Resta       ;Jump hacia Resta
 
 Pos_corrida:
 
-mov ACC, 0x01    ;Cargar 1 en el ACC
+mov ACC, 0b01    ;Cargar 1 en el ACC
 mov DPTR, ACC   ;Apuntar a la dirección de ACC
 mov ACC, [DPTR] ;Mover el contenido del DPTR al ACC
 inv ACC         ;Invertir ACC
 mov A, ACC     ;Mover ACC en A 
                 ;A = [1] C1
 
-mov ACC, 0x1    ;Cargar 1 en el ACC
+mov ACC, 0b01    ;Cargar 1 en el ACC
 mov DPTR, ACC   ;Apuntar a la dirección de ACC
 mov ACC, [DPTR] ;Mover el contenido del DPTR al ACC
 add ACC, A      ;Sumar A a ACC
@@ -101,7 +101,7 @@ mov ACC, [DPTR] ; Mover el contenido del DPTR al ACC
 and ACC, A      ; Añadir A a ACC    BMENOS & AMUL
                 ; ACC = EL BMENOS DE AMUL
 
-lsh ACC 0x07     ; ShiftLeft - Izquierda
+lsh ACC 0b111     ; ShiftLeft - Izquierda
 mov A, ACC      ; Mover ACC en A 
                 ; A = EL BMENOS DE AMUL EN LA POS. DE BMAS
 
@@ -116,7 +116,7 @@ mov DPTR, ACC   ; Apuntar a la dirección de ACC
 mov ACC, [DPTR] ; Mover el contenido del DPTR al ACC
                 ; ACC = variableA
 
-rsh ACC 0x01     ; ShiftRight - Derecha
+rsh ACC 0b01     ; ShiftRight - Derecha
                 ; ACC = SHIFT AMUL
 	
 mov [DPTR], ACC ; Mover ACC al contenido de DPTR (AMUL)		
@@ -146,7 +146,7 @@ mov DPTR, ACC   ; Apuntar a la dirección de ACC
 mov ACC, [DPTR] ; Mover el contenido del DPTR al ACC
                 ; ACC = Q
 
-rsh ACC 0x01     ; ShiftRight - Derecha
+rsh ACC 0b01     ; ShiftRight - Derecha
 
 mov [DPTR], ACC ; Mover ACC al contenido de DPTR (Q)		
                 ; Q = SHIFT Q
