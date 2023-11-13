@@ -15,7 +15,7 @@ Loop_principal:
 MOV ACC, Bmenos ;Cargar Bmenos en el ACC
 MOV DPTR, ACC   ;Apuntar a la dirección de ACC
 MOV ACC, [DPTR] ;Mover el contenido del DPTR al ACC
-MOV A,ACC      ;Mover ACC a A
+MOV A, ACC      ;Mover ACC a A
                 ;A = 00000001 
 
 MOV ACC, Q   	;Cargar Q en el ACC
@@ -38,7 +38,7 @@ INV ACC         ;Invertir ACC
 MOV A, ACC      ;Mover ACC en A
                 ;A = [QMAS] C1
 
-MOV ACC, 0x1    ;Cargar 1 en el ACC
+MOV ACC, 0x01    ;Cargar 1 en el ACC
 MOV DPTR, ACC   ;Apuntar a la dirección de ACC
 MOV ACC, [DPTR] ;Mover el contenido del DPTR al ACC
 ADD ACC, A      ;Sumar A a ACC
@@ -60,14 +60,14 @@ JMP Resta       ;Jump hacia Resta
 
 Pos_corrida:
 
-MOV ACC, 0x1    ;Cargar 1 en el ACC
+MOV ACC, 0x01    ;Cargar 1 en el ACC
 MOV DPTR, ACC   ;Apuntar a la dirección de ACC
 MOV ACC, [DPTR] ;Mover el contenido del DPTR al ACC
 INV ACC         ;Invertir ACC
 MOV A, ACC     ;Mover ACC en A 
                 ;A = [1] C1
 
-MOV ACC, 0x1    ;Cargar 1 en el ACC
+MOV ACC, 0x01    ;Cargar 1 en el ACC
 MOV DPTR, ACC   ;Apuntar a la dirección de ACC
 MOV ACC, [DPTR] ;Mover el contenido del DPTR al ACC
 ADD ACC, A      ;Sumar A a ACC
@@ -101,7 +101,7 @@ MOV ACC, [DPTR] ;Mover el contenido del DPTR al ACC
 AND ACC, A      ;Añadir A a ACC    BMENOS & AMUL
                 ;ACC = EL BMENOS DE AMUL
 
-LSH ACC 0x7     ;ShiftLeft - Izquierda
+LSH ACC 0x07     ;ShiftLeft - Izquierda
 MOV A, ACC      ;Mover ACC en A 
                 ;A = EL BMENOS DE AMUL EN LA POS. DE BMAS
 
@@ -116,7 +116,7 @@ MOV DPTR, ACC   ;Apuntar a la dirección de ACC
 MOV ACC, [DPTR] ;Mover el contenido del DPTR al ACC
                 ;ACC = variableA
 
-RSH ACC 0x1     ;ShiftRight - Derecha
+RSH ACC 0x01     ;ShiftRight - Derecha
                 ;ACC = SHIFT AMUL
 	
 MOV [DPTR], ACC ;Mover ACC a al contenido de DPTR (AMUL)		
@@ -146,7 +146,7 @@ MOV DPTR, ACC   ;Apuntar a la dirección de ACC
 MOV ACC, [DPTR] ;Mover el contenido del DPTR al ACC
                 ;ACC = Q
 
-RSH ACC 0X1     ;ShiftRight - Derecha
+RSH ACC 0x01     ;ShiftRight - Derecha
 
 MOV [DPTR], ACC ;Mover ACC a al contenido de DPTR (Q)		
                 ;Q = SHIFT Q
@@ -191,7 +191,7 @@ INV ACC         ;Invertir ACC
 MOV A, ACC      ;Mover ACC en A
                 ;A = [M] C1
 
-MOV ACC, 0x1    ;Cargar 1 en el ACC
+MOV ACC, 0x01    ;Cargar 1 en el ACC
 MOV DPTR, ACC   ;Apuntar a la dirección de ACC
 MOV ACC, [DPTR] ;Mover el contenido del DPTR al ACC
 ADD ACC, A      ;Sumar A a ACC
