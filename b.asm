@@ -168,40 +168,41 @@ JMP Pos_corrida ;Jump a count--
 
 Suma:
 
-MOV ACC, M    	;Cargar M en el ACC
-MOV DPTR, ACC   ;Apuntar a la dirección de ACC
-MOV ACC, [DPTR] ;Mover el contenido del DPTR al ACC
-MOV A, ACC      ;Mover ACC en A 
-                ;A = M
+mov ACC, M      ; Cargar M en el ACC
+mov DPTR, ACC   ; Apuntar a la dirección de ACC
+mov ACC, [DPTR] ; Mover el contenido del DPTR al ACC
+mov A, ACC      ; Mover ACC en A 
+                ; A = M
 
-MOV ACC, variableA    ;Cargar variableA en el ACC
-MOV DPTR, ACC   ;Apuntar a la dirección de ACC
-MOV ACC, [DPTR] ;Mover el contenido del DPTR al ACC
-ADD ACC, A      ;Sumar A a ACC
-MOV [DPTR], ACC ;AMUL = AMUL + M
+mov ACC, variableA    ; Cargar variableA en el ACC
+mov DPTR, ACC   ; Apuntar a la dirección de ACC
+mov ACC, [DPTR] ; Mover el contenido del DPTR al ACC
+add ACC, A      ; Sumar A a ACC
+mov A, ACC      ; Mover ACC en A 
+                ; A = A + variableA
 
-JMP Shift       ;Jump hacia el Shift
+call Shift      ; Llamar a la rutina Shift
 
 Resta:
 
-MOV ACC, M    	;Cargar M en el ACC
-MOV DPTR, ACC   ;Apuntar a la dirección de ACC
-MOV ACC, [DPTR] ;Mover el contenido del DPTR al ACC
-INV ACC         ;Invertir ACC
-MOV A, ACC      ;Mover ACC en A
-                ;A = [M] C1
+mov ACC, M      ; Cargar M en el ACC
+mov DPTR, ACC   ; Apuntar a la dirección de ACC
+mov ACC, [DPTR] ; Mover el contenido del DPTR al ACC
+inv ACC         ; Invertir ACC
+mov A, ACC      ; Mover ACC en A
+                ; A = [M]C1
 
-MOV ACC, 0x01    ;Cargar 1 en el ACC
-MOV DPTR, ACC   ;Apuntar a la dirección de ACC
-MOV ACC, [DPTR] ;Mover el contenido del DPTR al ACC
-ADD ACC, A      ;Sumar A a ACC
-MOV A, ACC     ;Mover ACC en A 
-                ;A = [M] C2
+mov ACC, 0x01   ; Cargar 1 en el ACC
+mov DPTR, ACC   ; Apuntar a la dirección de ACC
+mov ACC, [DPTR] ; Mover el contenido del DPTR al ACC
+add ACC, A      ; Sumar A a ACC
+mov A, ACC      ; Mover ACC en A 
+                ; A = [M]C2
 
-MOV ACC, variableA    ;Cargar variableA en el ACC
-MOV DPTR, ACC   ;Apuntar a la dirección de ACC
-MOV ACC, [DPTR] ;Mover el contenido del DPTR al ACC
-ADD ACC, A      ;Sumar A a ACC
-MOV [DPTR], ACC ;AMUL = AMUL - M
+mov ACC, variableA    ; Cargar variableA en el ACC
+mov DPTR, ACC   ; Apuntar a la dirección de ACC
+mov ACC, [DPTR] ; Mover el contenido del DPTR al ACC
+add ACC, A      ; Sumar A a ACC
+mov [DPTR], ACC ; A = A - variableA, almacenar en variableA
 
-JMP Shift       ;Jump hacia el Shift
+call Shift      ; Llamar a la rutina Shift
