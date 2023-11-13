@@ -1,8 +1,8 @@
 
 variableA: 0b00000000
-Q: 0b10000001 ; Multiplicador
+Q: 0b00000011 ; Multiplicador
 Q_1: 0b0
-M: 0b11111101; Multiplicando
+M: 0b11111001; Multiplicando
 count: 0x8
 
 Bmenos: 0b00000001
@@ -12,9 +12,7 @@ QSHBMAS: 0b00000000
 
 Loop_principal:
 
-		mov ACC, Bmenos ;Cargar Bmenos en el ACC
-		mov DPTR, ACC   ;Apuntar a la dirección de ACC
-		mov ACC, [DPTR] ;Mover el contenido del DPTR al ACC
+		mov ACC, 0b00000001 ;Cargar Bmenos en el ACC	
 		mov A, ACC      ;Mover ACC a A
 		                ;A = 00000001 
 
@@ -38,9 +36,8 @@ Loop_principal:
 		mov A, ACC      ;Mover ACC en A
                 		;A = [QMAS] C1
 
-		mov ACC, 0x1   ;Cargar 1 en el ACC
-		mov DPTR, ACC   ;Apuntar a la dirección de ACC
-		mov ACC, [DPTR] ;Mover el contenido del DPTR al ACC
+		mov ACC, 0b00000001   ;Cargar 1 en el ACC
+		
 		add ACC, A      ;Sumar A a ACC
 		mov A, ACC      ;Mover ACC en A 
          			;A = [QMAS] C2
@@ -52,24 +49,25 @@ Loop_principal:
 		mov A, ACC      ;Mover ACC en A 
                 		;A = QCERO - QMAS
 
+		
+		jn Suma         ;JumpNegative hacia Suma
+
 		jz Shift        ;JumpZero hacia Shift
 
-		jn Suma         ;JumpNegative hacia Suma
+		
 
 		call Resta      ;Jump hacia Resta
 
 Pos_corrida:
 
-		mov ACC, 0b01   ;Cargar 1 en el ACC
-		mov DPTR, ACC   ;Apuntar a la dirección de ACC
-		mov ACC, [DPTR] ;Mover el contenido del DPTR al ACC
+		mov ACC, 0b00000001   ;Cargar 1 en el ACC
+		
 		inv ACC         ;Invertir ACC
 		mov A, ACC      ;Mover ACC en A 
 		                ;A = [1] C1
 
-		mov ACC, 0b01   ;Cargar 1 en el ACC
-		mov DPTR, ACC   ;Apuntar a la dirección de ACC
-		mov ACC, [DPTR] ;Mover el contenido del DPTR al ACC
+		mov ACC, 0b00000001   ;Cargar 1 en el ACC
+		
 		add ACC, A      ;Sumar A a ACC
 		mov A, ACC      ;Mover ACC en A 
 		                ;A = [1] C2
@@ -90,9 +88,7 @@ Fin:
 
 Shift:
 
-		mov ACC, Bmenos ; Cargar una variable x en el ACC
-		mov DPTR, ACC   ; Apuntar a la dirección de ACC
-		mov ACC, [DPTR] ; Mover el contenido del DPTR al ACC
+		mov ACC, 0b00000001 ; Cargar una variable x en el ACC		
 		mov A, ACC      ; Mover ACC a A
 		                ; A = 00000001 
 
@@ -123,9 +119,8 @@ Shift:
 		mov [DPTR], ACC ; Mover ACC al contenido de DPTR (AMUL)		
 		                ; AMUL = SHIFT AMUL
 
-		mov ACC, Bmenos ; Cargar Bmenos en el ACC
-		mov DPTR, ACC   ; Apuntar a la dirección de ACC
-		mov ACC, [DPTR] ; Mover el contenido del DPTR al ACC
+		mov ACC, 0b00000001 ; Cargar Bmenos en el ACC
+		
 		mov A, ACC      ; Mover ACC a A
 		                ; A = 00000001 
 
@@ -193,9 +188,8 @@ Resta:
 		mov A, ACC      ; Mover ACC en A
 		                ; A = [M]C1
 
-		mov ACC, 0b01   ; Cargar 1 en el ACC
-		mov DPTR, ACC   ; Apuntar a la dirección de ACC
-		mov ACC, [DPTR] ; Mover el contenido del DPTR al ACC
+		mov ACC, 0b00000001   ; Cargar 1 en el ACC
+		
 		add ACC, A      ; Sumar A a ACC
 		mov A, ACC      ; Mover ACC en A 
 		                ; A = [M]C2
