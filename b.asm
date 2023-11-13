@@ -52,7 +52,7 @@ Loop_principal:
 		
 		jn Suma         ;JumpNegative hacia Suma
 
-		jz Shift        ;JumpZero hacia Shift
+		0X0B Shift        ;JumpZero hacia Shift
 
 		
 
