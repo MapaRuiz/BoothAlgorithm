@@ -38,7 +38,7 @@ Loop_principal:
 		mov A, ACC      ;Mover ACC en A
                 		;A = [QMAS] C1
 
-		mov ACC, 0b01   ;Cargar 1 en el ACC
+		mov ACC, 0x1   ;Cargar 1 en el ACC
 		mov DPTR, ACC   ;Apuntar a la dirección de ACC
 		mov ACC, [DPTR] ;Mover el contenido del DPTR al ACC
 		add ACC, A      ;Sumar A a ACC
