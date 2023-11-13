@@ -3,7 +3,7 @@ variableA: 0b00000000
 Q: 0b10000001 ; Multiplicador
 Q_1: 0b00000000
 M: 0b11111101; Multiplicando
-count: 0b1000
+count: 0b0
 
 Bmenos: 0b00000001
 Qcero: 0b00000000
@@ -60,27 +60,39 @@ Loop_principal:
 
 Pos_corrida:
 
-		mov ACC, 0b01   ;Cargar 1 en el ACC
+		mov ACC, 0b1000   ;Cargar 1 en el ACC
 		mov DPTR, ACC   ;Apuntar a la dirección de ACC
 		mov ACC, [DPTR] ;Mover el contenido del DPTR al ACC
 		inv ACC         ;Invertir ACC
 		mov A, ACC      ;Mover ACC en A 
-		                ;A = [1] C1
+		                ;A = [8] C1
 
 		mov ACC, 0b01   ;Cargar 1 en el ACC
 		mov DPTR, ACC   ;Apuntar a la dirección de ACC
 		mov ACC, [DPTR] ;Mover el contenido del DPTR al ACC
 		add ACC, A      ;Sumar A a ACC
 		mov A, ACC      ;Mover ACC en A 
-		                ;A = [1] C2
+		                ;A = [8] C2
 
 		mov ACC, count  ;Cargar count en el ACC
 		mov DPTR, ACC   ;Apuntar a la dirección de ACC
-		add ACC, A      ;Añadir A a ACC    ACC = Count - 1
-		mov [DPTR], ACC ;Mover ACC a contenido de DPTR  
-		                ;Count = Count - 1
+		mov ACC, [DPTR] ;Mover el contenido del DPTR al ACC
+		add ACC, A      ;Añadir A a ACC    ACC = Count - 8
 
 		jz Fin          ;JumpZero hacia Fin
+
+		mov ACC, 0b01   ;Cargar 1 en el ACC
+		mov DPTR, ACC   ;Apuntar a la dirección de ACC
+		mov ACC, [DPTR] ;Mover el contenido del DPTR al ACC
+		mov A, ACC      ;Mover ACC en A 
+		                ;A = 1
+
+		mov ACC, count  ;Cargar count en el ACC
+		mov DPTR, ACC   ;Apuntar a la dirección de ACC
+		mov ACC, [DPTR] ;Mover el contenido del DPTR al ACC
+		add ACC, A      ;Añadir A a ACC    ACC = Count + 1
+		mov [DPTR], ACC ;Mover ACC a contenido de DPTR  
+		                ;Count = Count + 1
 
 		call Loop_principal     ;Jump devuelta al Loop_principal
 
@@ -192,7 +204,7 @@ Resta:
 		mov A, ACC      ; Mover ACC en A
 		                ; A = [M]C1
 
-		mov ACC, 0x01   ; Cargar 1 en el ACC
+		mov ACC, 0b01   ; Cargar 1 en el ACC
 		mov DPTR, ACC   ; Apuntar a la dirección de ACC
 		mov ACC, [DPTR] ; Mover el contenido del DPTR al ACC
 		add ACC, A      ; Sumar A a ACC
