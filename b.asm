@@ -52,7 +52,6 @@ Loop_principal:
 		
 		jn Suma         ;JumpNegative hacia Suma
 
-		mov ACC, A
 		jz Shift        ;JumpZero hacia Shift
 
 		call Resta      ;Jump hacia Resta
