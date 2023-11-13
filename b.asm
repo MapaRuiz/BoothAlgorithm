@@ -3,7 +3,7 @@ variableA: 0b00000000
 Q: 0b10000001 ; Multiplicador
 Q_1: 0b00000000
 M: 0b11111101; Multiplicando
-count: 0b1000
+count: 0x8
 
 Bmenos: 0b00000001
 Qcero: 0b00000000
@@ -102,7 +102,7 @@ Shift:
 		and ACC, A      ; Añadir A a ACC    BMENOS & AMUL
 		                ; ACC = EL BMENOS DE AMUL
 
-		lsh ACC 0b111   ; ShiftLeft - Izquierda
+		lsh ACC 0x7   ; ShiftLeft - Izquierda
 		mov A, ACC      ; Mover ACC en A 
 		                ; A = EL BMENOS DE AMUL EN LA POS. DE BMAS
 
@@ -117,7 +117,7 @@ Shift:
 		mov ACC, [DPTR] ; Mover el contenido del DPTR al ACC
 		                ; ACC = variableA
 
-		rsh ACC 0b01    ; ShiftRight - Derecha
+		rsh ACC 0x1    ; ShiftRight - Derecha
 		                ; ACC = SHIFT AMUL
 	
 		mov [DPTR], ACC ; Mover ACC al contenido de DPTR (AMUL)		
@@ -147,7 +147,7 @@ Shift:
 		mov ACC, [DPTR] ; Mover el contenido del DPTR al ACC
 		                ; ACC = Q
 
-		rsh ACC 0b01     ; ShiftRight - Derecha
+		rsh ACC 0x1     ; ShiftRight - Derecha
 
 		mov [DPTR], ACC ; Mover ACC al contenido de DPTR (Q)		
 		                ; Q = SHIFT Q
