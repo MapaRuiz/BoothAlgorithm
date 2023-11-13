@@ -1,13 +1,13 @@
 
-variableA: 0b0 
+variableA: 0b00000000
 Q: 0b10000001 ; Multiplicador
-Q_1: 0b0
+Q_1: 0b00000000
 M: 0b11111101; Multiplicando
 count: 0b1000
 
 Bmenos: 0b00000001
-Qcero: 0b0
-QSHBMAS: 0b0
+Qcero: 0b00000000
+QSHBMAS: 0b00000000
 
 
 Loop_principal:
