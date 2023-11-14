@@ -7,12 +7,10 @@ count: 0x8
 
 Qcero: 0b00000000
 QSHBMAS: 0b00000000
-MS:0b0
-
 
 Loop_principal:
 
-		mov ACC, 0b00000001 ;Cargar Bmenos en el ACC	
+		mov ACC, 0b00000001 ;Cargar 0b00000001 en el ACC	
 		mov A, ACC      ;Mover ACC a A
 		                ;A = 00000001 
 
@@ -27,7 +25,7 @@ Loop_principal:
 		mov DPTR, ACC   ;Apuntar a la dirección de ACC
 		mov ACC, A      ;Mover A a ACC
 		mov [DPTR], ACC ;Cambiar el contenido del DPTR a ACC
-         			;Qcero = El BMENOS DE Q	
+         			;Qcero = El bit menos significativo de Q	
 
 		mov ACC, Q_1    ;Cargar Q_1 en el ACC
 		mov DPTR, ACC   ;Apuntar a la dirección de ACC
@@ -87,25 +85,25 @@ Fin:
 
 Shift:
 
-		mov ACC, 0b00000001 ; Cargar una variable x en el ACC		
+		mov ACC, 0b00000001 ; Cargar 0b00000001 en el ACC		
 		mov A, ACC      ; Mover ACC a A
 		                ; A = 00000001 
 
 		mov ACC, variableA    ; Cargar variableA en el ACC
 		mov DPTR, ACC   ; Apuntar a la dirección de ACC
 		mov ACC, [DPTR] ; Mover el contenido del DPTR al ACC
-		and ACC, A      ; Añadir A a ACC    BMENOS & AMUL
-		                ; ACC = EL BMENOS DE AMUL
+		and ACC, A      ; Añadir A a ACC    BMENOS & variableA
+		                ; ACC = EL BMENOS DE variableA
 
-		lsh ACC 0x7   ; ShiftLeft - Izquierda
+		lsh ACC 0x7     ; ShiftLeft - Izquierda
 		mov A, ACC      ; Mover ACC en A 
-		                ; A = EL BMENOS DE AMUL EN LA POS. DE BMAS
+		                ; A = EL BMENOS DE variableA EN LA POS. DE BMAS
 
 		mov ACC, QSHBMAS    ; Cargar una variable x en el ACC
 		mov DPTR, ACC   ; Apuntar a la dirección de ACC
 		mov ACC, A	; Mover A a ACC	
 		mov [DPTR], ACC ; Mover ACC al contenido de DPTR (QSHBMAS)		
-		                ; QSHBMAS = SHIFT BMAS PARA Q 
+		                ; QSHBMAS = BMAS PARA Q EN EL SHIFT   
 
 		mov ACC, variableA    ; Cargar variableA en el ACC
 		mov DPTR, ACC   ; Apuntar a la dirección de ACC
@@ -113,13 +111,12 @@ Shift:
 		                ; ACC = variableA
 
 		rsh ACC 0x1     ; ShiftRight - Derecha
-		                ; ACC = SHIFT AMUL
+		                ; ACC = SHIFT variableA
 	
-		mov [DPTR], ACC ; Mover ACC al contenido de DPTR (AMUL)		
-		                ; AMUL = SHIFT AMUL
+		mov [DPTR], ACC ; Mover ACC al contenido de DPTR (variableA)		
+		                ; variableA = SHIFT variableA
 
-		mov ACC, 0b00000001 ; Cargar Bmenos en el ACC
-		
+		mov ACC, 0b00000001 ; Cargar 0b00000001 en el ACC
 		mov A, ACC      ; Mover ACC a A
 		                ; A = 00000001 
 
@@ -134,7 +131,7 @@ Shift:
 		mov DPTR, ACC   ; Apuntar a la dirección de ACC
 		mov ACC, A      ; Mover A a ACC	
 		mov [DPTR], ACC ; Mover ACC al contenido de DPTR (QMAS)		
-		                ; QMAS = BMENOS DE Q
+		                ; Q_1 = BMENOS DE Q
 
 		mov ACC, Q      ; Cargar Q en el ACC
 		mov DPTR, ACC   ; Apuntar a la dirección de ACC
@@ -142,7 +139,6 @@ Shift:
 		                ; ACC = Q
 
 		rsh ACC 0x1     ; ShiftRight - Derecha
-
 		mov [DPTR], ACC ; Mover ACC al contenido de DPTR (Q)		
 		                ; Q = SHIFT Q
 
@@ -158,7 +154,6 @@ Shift:
 		add ACC, A      ; Añadir A a ACC (Q + QSHBMAS)
 		mov [DPTR], ACC ; Mover ACC al contenido de DPTR 
 		                ; Q = Q + QSHBMAS
-
 
 		call Pos_corrida ; Jump a count--
 
