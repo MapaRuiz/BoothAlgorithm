@@ -82,15 +82,6 @@ Pos_corrida:
 		call Loop_principal     ;Jump devuelta al Loop_principal
 
 Fin:	
-		mov ACC, variableA    ; Cargar variableA en el ACC
-		mov DPTR, ACC   ; Apuntar a la dirección de ACC
-		mov ACC, [DPTR] ; Mover el contenido del DPTR al ACC
-		                ; ACC = variableA
-
-		rsh ACC 0x1     ; ShiftRight - Derecha
-		                ; ACC = SHIFT AMUL
-
-		mov [DPTR], ACC ; Mover ACC al contenido de DPTR
 
 		hlt             ;Etiqueta de finalizacion del programa		
 
