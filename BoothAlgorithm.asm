@@ -7,6 +7,7 @@ count: 0x8
 
 Qcero: 0b00000000
 QSHBMAS: 0b00000000
+MS:0b0
 
 
 Loop_principal:
@@ -80,7 +81,7 @@ Pos_corrida:
 
 		call Loop_principal     ;Jump devuelta al Loop_principal
 
-Fin:
+Fin:	
 		mov ACC, variableA    ; Cargar variableA en el ACC
 		mov DPTR, ACC   ; Apuntar a la dirección de ACC
 		mov ACC, [DPTR] ; Mover el contenido del DPTR al ACC
@@ -89,9 +90,9 @@ Fin:
 		rsh ACC 0x1     ; ShiftRight - Derecha
 		                ; ACC = SHIFT AMUL
 
-		mov [DPTR], ACC ; Mover ACC al contenido de DPTR	
+		mov [DPTR], ACC ; Mover ACC al contenido de DPTR
 
-		hlt             ;Etiqueta de finalizacion del programa
+		hlt             ;Etiqueta de finalizacion del programa		
 
 Shift:
 
