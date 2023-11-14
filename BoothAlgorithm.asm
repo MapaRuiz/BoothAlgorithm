@@ -103,8 +103,18 @@ Shift:
 		mov DPTR, ACC   ; Apuntar a la dirección de ACC
 		mov ACC, A	; Mover A a ACC	
 		mov [DPTR], ACC ; Mover ACC al contenido de DPTR (QSHBMAS)		
-		                ; QSHBMAS = BMAS PARA Q EN EL SHIFT   
+		                ; QSHBMAS = BMAS PARA Q EN EL SHIFT 
 
+		mov ACC, 0b10000000 ; Cargar 0b10000000 en el ACC		
+		mov A, ACC      ; Mover ACC a A
+		                ; A = 10000000 
+
+		mov ACC, variableA    ; Cargar variableA en el ACC
+		mov DPTR, ACC   ; Apuntar a la dirección de ACC
+		mov ACC, [DPTR] ; Mover el contenido del DPTR al ACC
+		and ACC, A      ; Añadir A a ACC    BMENOS & variableA
+		mov A, ACC      ; A = EL BMAS DE variableA
+				
 		mov ACC, variableA    ; Cargar variableA en el ACC
 		mov DPTR, ACC   ; Apuntar a la dirección de ACC
 		mov ACC, [DPTR] ; Mover el contenido del DPTR al ACC
@@ -112,6 +122,7 @@ Shift:
 
 		rsh ACC 0x1     ; ShiftRight - Derecha
 		                ; ACC = SHIFT variableA
+		add ACC, A	; BMAS DE vA + SHIFT vA
 	
 		mov [DPTR], ACC ; Mover ACC al contenido de DPTR (variableA)		
 		                ; variableA = SHIFT variableA
