@@ -28,7 +28,7 @@ Loop_principal:
 		mov A, ACC      ;Mover ACC en A 
          			;A = [count2] C2
 
-		mov ACC, 0b00000111 ; Cargar el exponente en ACC
+		mov ACC, 0b00000111 ; Cargar el EXPONENTE en ACC (constante)
 			
 		add ACC, A      ;Añadir A a ACC
 		mov A, ACC      ;Mover ACC en A   -> A = variabley - count2
