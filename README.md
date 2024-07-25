@@ -5,7 +5,9 @@
 📄 - Proyecto final.
 
 🟧- Clase: "Arquitectura y Organizacion del computador" 
+
 👨‍🏫- Profesor: Cristian Diaz
+
 🏦- Universidad: Pontificia Universidad Javeriana
 
 🧑‍🤝‍🧑Equipo: Juan Rozo, David Roa y Mapa Ruiz
