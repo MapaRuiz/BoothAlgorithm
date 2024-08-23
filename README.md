@@ -4,7 +4,7 @@
 # Booth Algorithm
 📄 - Final proyect.
 
-🟧- Class: "Arquitectura y Organizacion del computador" 
+🟧- Subject: "Arquitectura y Organizacion del computador" 
 
 👨‍🏫- Teacher: Cristian Diaz
 
